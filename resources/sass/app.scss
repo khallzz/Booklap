@@ -1,0 +1,139 @@
+// Fonts
+// @import url('https://fonts.bunny.net/css?family=Nunito');
+// @import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+// @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+// Variables
+@import 'variables';
+$primary: #F49B33;
+$secondary: #2B2B2B;
+$grey: #E9E9E9;
+$light:#E9E9E9;
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+body{
+    // font-family: 'Segoe UI', sans-serif !important;
+    // font-family: 'SF Pro Display', sans-serif !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.nav-link.active {
+    color: $primary !important;
+}
+
+.bg-grey{
+    background-color: $grey !important;
+}
+// .btn-primary {
+//     background-color: $primary !important;
+// }
+
+// .bg-primary {
+//     background-color: $primary !important;
+// }
+
+// .btn-secondary {
+//     background-color: $secondary !important;
+// }
+
+// .bg-secondary {
+//     background-color: $secondary !important;
+// }
+
+.guest-page .form-control{
+    background-color: $grey !important;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer .sosmed-footer a{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    background-color: $secondary;
+}
+
+.hero{
+    background-position: center;
+    background-repeat: no-repeate;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    height: 400px;
+}
+
+.hero-title{
+    font-weight: 700;
+    font-size: 84px;
+}
+
+.nav-link {
+    font-weight: 700;
+}
+
+.nav-link:hover{
+    color: $primary;
+}
+
+.nav-link.active{
+    color: $primary;
+}
+
+.fc-day {
+    cursor: pointer !important;
+}
+
+.fc-day:hover{
+    background-color: rgba(255,220,40,.15) !important;
+}
+
+.sesi input[type="radio"] {
+    display: none;
+}
+
+.sesi label {
+    position: relative;
+    color: $primary;
+    /* font-family: "Poppins", sans-serif; */
+    background-color: white;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8em;
+    border: 3px solid $primary;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+}
+.sesi label:before {
+    content: "";
+    height: 1.5em;
+    width: 1.5em;
+    border: 3px solid $primary;
+    border-radius: 50%;
+}
+.sesi input[type="radio"]:checked+label:before {
+
+    border: 0.2em solid #ffffff;
+    background-color: $primary;
+}
+.sesi input[type="radio"]:checked+label {
+    background-color: $primary;
+    color: #ffffff;
+}
+
+.top-2 {
+    top: 0.5rem !important;
+}
+.end-2 {
+    right: 0.5rem !important;
+}

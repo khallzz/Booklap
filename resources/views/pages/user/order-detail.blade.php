@@ -1,0 +1,42 @@
+<x-app-layout>
+    @slot('content')
+        <!-- Hero 1 - Bootstrap Brain Component -->
+        <section class="promo-venue py-5 min-vh-100">
+            <div class="container">
+                <h1 class="">Order <span class="text-primary">Details</span></h1>
+                <div class="row mt-4 text-body-tertiary">
+                    <div class="col">
+                        <h3 class="mb-4">Player Name</h3>
+                        <h3 class="mb-4">Field</h3>
+                        <h3 class="mb-4">Time</h3>
+                        <h3 class="mb-4">SubTotal</h3>
+                        <h3 class="mb-4">Status</h3>
+                    </div>
+                    <div class="col">
+                        <h3 class="mb-4">Khalif113</h3>
+                        <h3 class="mb-4">Serena Mansion</h3>
+                        <h3 class="mb-4">10:00 - 12:00</h3>
+                        <h3 class="mb-4">Rp. 550.000</h3>
+                        <h3 class="mb-4">Unpaid</h3>
+                    </div>
+                    <div class="col >
+                        <h5 class="fw-bold">Upload Bukti Pembayaran</h5>
+                        <hr class="bg-body-tertiary w-100 border-2">
+                        <p class=""">Silahkan Upload Bukti Pembayaran, status pemesanan akan tetap "Unpaid"
+                            hingga staff Admin kami mengonfirmasi bukti pembayaran Anda</p>
+                        <div class="mb-3">
+                            <label for="upload_file" class="form-label">Upload Bukti Pembayaran</label>
+                            <input type="file" class="form-control" id="upload_file" accept="image/jpg,image/jpeg,image/png">
+                        </div>
+                        <hr class="bg-body-tertiary w-100 border-2">
+                        <div class="d-flex gap-3 justify-content-end">
+                            <button href="" class="btn btn-light border">Tutup</button>
+                            <button href="" class="btn btn-primary text-white">Upload</butt>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <x-footer />
+    @endslot
+</x-app-layout>
