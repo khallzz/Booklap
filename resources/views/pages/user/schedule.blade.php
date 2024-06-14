@@ -2,7 +2,6 @@
     @slot('content')
         <!-- Hero 1 - Bootstrap Brain Component -->
         <section class="schedule py-5">
-            <form action="">
                 <div class="container d-flex flex-column justify-content-center align-items-center">
                     <h2>Pilih Lapangan :</h2>
                     <select name="field" id="" class="form-control w-50 text-center my-3 border-dark border-3">
@@ -31,7 +30,6 @@
                                         value="12:00-14:00">
                                     <label class="" for="12:00-14:00">12:00-14:00</label>
                                 </div>
-
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="sesi" id="14:00-16:00"
                                         value="14:00-16:00">
@@ -45,13 +43,35 @@
                             </div>
                         </div>
                         <div class="text-center mt-4">
-                            <button class="btn btn-primary text-white text-center w-25 py-2">Book Now</button>
+                            <button class="btn btn-primary text-white text-center w-25 py-2" data-bs-toggle="modal" data-bs-target="#resumeModal">Book Now</button>
                         </div>
                     </div>
                 </div>
-            </form>
         </section>
         <x-footer />
+        <!-- Modal -->
+        <div class="modal fade" id="resumeModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content rounded-4 px-4">
+                    <div class="modal-body">
+                        <h1 class="modal-title fs-5 text-center fw-bold" id="exampleModalLabel">
+                            Field
+                            <span class="text-primary">Details</span>
+                        </h1>
+                        <hr class="border-primary border-2">
+                        <p class="fw-bold m-0">{{ Auth::user()->username }}</p>
+                        <p class="fw-bold m-0">{{ Auth::user()->phone_number }}</p>
+                        {{-- <p class="fw-bold m-0">{{ $item->location }} </p> --}}
+                        <hr class="border-primary border-2">
+                        <button type="button" class="btn text-body-tertiary fw-bold border-0"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary text-white fw-bold px-4">Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- END OF MODAL --}}
+
     @endslot
     @push('script')
         <script>

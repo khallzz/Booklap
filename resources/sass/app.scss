@@ -137,3 +137,8 @@ footer {
 .end-2 {
     right: 0.5rem !important;
 }
+
+label.disable {
+    background-color: #ddd;
+    cursor:default;
+}
