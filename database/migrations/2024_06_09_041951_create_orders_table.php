@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Field::class);
             $table->string('order_code')->unique();
-            $table->enum('status', ['UNPAID', 'CONFIRMED', 'FINISHED', 'CANCELED'])->default('PENDING');
+            $table->enum('status', ['UNPAID', 'CONFIRMED', 'FINISHED', 'CANCELED'])->default('UNPAID');
             $table->integer('amount');
             $table->boolean('is_promo');
             $table->time('start_time');
