@@ -16,6 +16,17 @@ class Field extends Model
         'slug',
         'contact_person',
         'is_promo',
-        'promo_price'
+        'field_img'
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'is_promo' => 'bool',
+        ];
+    }
+
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
 }

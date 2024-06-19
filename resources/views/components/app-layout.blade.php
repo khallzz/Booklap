@@ -18,12 +18,15 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/js/utils.js'])
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div id="app">
         <x-navbar />
         <main class="">
@@ -31,5 +34,15 @@
         </main>
     </div>
 </body>
+<script>
+    const showAlert = (icon, title, message) => {
+        Swal.fire({
+            icon: icon,
+            title: title,
+            text: message
+        })
+    }
+</script>
 @stack('script')
+
 </html>

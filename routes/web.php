@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,12 +18,15 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('book', [BookingController::class, 'index'])->name('book');
+Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::post('profile/update-profile-image', [ProfileController::class, 'updateProfileImage'])->name('profile.updateImage');
+Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');
 Route::get('book/schedule', [BookingController::class, 'schedulePage'])->middleware('auth')->name('book.schedule.index');
 Route::get('order', [BookingController::class, 'orderIndex'])->name('order.index');
-Route::get('order/show', function () {
-    return view('pages.user.order-detail');
-})->name('order.show');
-// Route::get('order/{order}', [BookingController::class, 'orderDetail'])->name('order.show');
+Route::post('order', [OrderController::class, 'store'])->name('order.store');
+Route::post('order/{order:order_code}/payment-receipt', [BookingController::class, 'uploadPaymentReceipt'])->name('order.paymentReceipt');
+Route::post('order/check-schedule/field/{field:slug}', [BookingController::class, 'checkSchedule'])->name('order.checkSchedule');
+Route::get('order/{order:order_code}', [BookingController::class, 'orderDetail'])->name('order.show');
 Route::post('feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
 Route::middleware('auth')->group(function () {

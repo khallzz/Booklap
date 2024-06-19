@@ -7,7 +7,7 @@
             <form action="{{ route('admin.order.index') }}" method="get">
                 <div class="row pb-3">
                     <div class="col-md-5 pt-4">
-                        <a href="{{ route('index_order') }}" class="btn btn-success">Go To Order</a>
+                        <a href="{{ route('book') }}" class="btn btn-success">Go To Order</a>
                     </div>
                     <div class="col-md-3">
                         <label>Start Date:</label>
@@ -30,9 +30,9 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Waktu Order</th>
-                            <th>Jenis Layanan</th>
-                            <th>Payment Status</th>
+                            <th>Created At</th>
+                            <th>Tanggal Pesan</th>
+                            <th>Order Status</th>
                             <th>Price</th>
                             <th>Action</th>
                         </tr>
@@ -40,35 +40,38 @@
                     <tbody>
                         @if (count($orders) == 0)
                             <tr>
-                                <td colspan="7" class="text-center">Tidak Ada Data Yang Ditampilkan</td>
+                                <td colspan="8" class="text-center">Tidak Ada Data Yang Ditampilkan</td>
                             </tr>
                         @endif
                         @foreach ($orders as $order)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $order->service->owner ?? 'tidak ada' }}</td>
+                                <td>{{ $order->user->username }}</td>
                                 <td>{{ $order->user->email }}</td>
                                 <td>{{ $order->created_at->format('Y-m-d H:i') }}</td>
-                                <td>{{ $order->service->product->name ?? 'tidak ada' }}</td>
-                                <td>
-                                    @switch($order->confirmation)
-                                        @case('confirm')
+                                <td>{{ $order->order_date }}</td>
+                                <td class="text-center">
+                                    @switch($order->status)
+                                        @case('UNPAID')
                                             <span
-                                                class="fw-bold badge {{ $order->is_paid ? 'bg-success' : 'bg-danger' }}">{{ $order->is_paid ? 'Paid' : 'Unpaid' }}</span>
-                                            <span
-                                                class="fw-bold badge {{ $order->payment_receipt != null ? 'bg-success' : 'bg-danger' }}">{{ $order->payment_receipt == null ? 'Belum Bayar' : 'Sudah Bayar' }}</span>
+                                                class="fw-bold badge {{ is_null($order->payment_receipt) ? 'bg-light text-black' : 'bg-warning' }}">{{ $order->payment_receipt == null ? 'Belum Bayar' : 'Sudah Bayar' }}</span>
                                         @break
 
-                                        @case('waiting')
-                                            <span class="badge bg-warning">Menunggu Konfirmasi</span>
+                                        @case('CONFIRMED')
+                                            <span class="badge bg-warning">Dikonfirmasi</span>
                                         @break
 
-                                        @default
-                                            <span class="badge bg-danger">Ditolak</span>
+                                        @case('FINISHED')
+                                            <span class="badge bg-success">Selesai</span>
+                                        @break
+
+                                        @case('CANCELED')
+                                            <span class="badge bg-danger">Batal</span>
+                                        @break
                                     @endswitch
                                 </td>
                                 <td>
-                                    <p>{{ $order->price }}</p>
+                                    <p>{{ $order->amount }}</p>
                                 </td>
                                 <td class="">
                                     <a href="{{ route('admin.order.show', ['order' => $order->id]) }}"

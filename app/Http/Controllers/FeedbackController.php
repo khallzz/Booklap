@@ -12,7 +12,8 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        //
+        $feedbacks = Feedback::paginate(10);
+        return view('dashboard.feedback.index', compact('feedbacks'));
     }
 
     /**
@@ -48,7 +49,7 @@ class FeedbackController extends Controller
      */
     public function show(Feedback $feedback)
     {
-        //
+        return view('dashboard.feedback.show', compact('feedback'));
     }
 
     /**

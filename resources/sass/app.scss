@@ -142,3 +142,13 @@ label.disable {
     background-color: #ddd;
     cursor:default;
 }
+
+.pe-pointer {
+    cursor: pointer !important;
+}
+
+.card.order:hover {
+    background-color: rgba($color: $primary, $alpha: 0.3);
+
+    transition: all 0.3s;
+}

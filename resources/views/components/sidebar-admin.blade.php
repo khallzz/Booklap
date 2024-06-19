@@ -54,7 +54,7 @@
         </li>
         <li>
             <a href="{{ route('admin.feedback.index') }}"
-                class="nav-link d-flex align-items-center gap-2 mt-2 text-white {{ Route::is('admin.pethotel.index') ? 'active' : '' }}"
+                class="nav-link d-flex align-items-center gap-2 mt-2 text-white {{ $feedback }}"
                 aria-current="page">
                 <i class="bi bi-envelope-check-fill"></i>
                 Feedback
@@ -65,12 +65,12 @@
     <div class="dropdown position-absolute bottom-0 mb-3">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
             data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32"
+            <img src="{{ Auth::user()->profile_image != null ? Storage::url(Auth::user()->profile_image) : asset('assets/field-img.png') }}" alt="" width="32" height="32"
                 class="rounded-circle me-2">
             <strong>{{ Auth::user()->username }}</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><a class="dropdown-item" href="{{ route('home') }}">Profile</a></li>
+            <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li>
             <li>
                 <form id="logout-form" class="" action="{{ route('logout') }}" method="POST">
                     @csrf

@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function() {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('order', OrderController::class);
+    Route::post('order/{order:order_code}/confirm', [OrderController::class, 'confirm'])->name('order.confirm');
+    Route::post('order/{order:order_code}/finished', [OrderController::class, 'finished'])->name('order.finished');
+    Route::post('order/{order:order_code}/cancel', [OrderController::class, 'cancel'])->name('order.cancel');
     Route::resource('field', FieldController::class);
     Route::resource('feedback', FeedbackController::class)->except('store');
 });

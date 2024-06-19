@@ -21,8 +21,10 @@ return new class extends Migration
             $table->enum('status', ['UNPAID', 'CONFIRMED', 'FINISHED', 'CANCELED'])->default('UNPAID');
             $table->integer('amount');
             $table->boolean('is_promo');
+            $table->date('order_date');
             $table->time('start_time');
             $table->time('end_time');
+            $table->string('payment_receipt')->nullable();
             $table->timestamps();
         });
     }

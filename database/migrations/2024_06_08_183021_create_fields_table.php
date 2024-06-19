@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('location');
             $table->integer('price');
             $table->boolean('is_promo');
-            $table->integer('promo_price')->nullable();
             $table->string('contact_person');
+            $table->string('field_img')->nullable();
             $table->timestamps();
         });
     }

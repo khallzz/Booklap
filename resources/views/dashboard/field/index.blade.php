@@ -1,24 +1,13 @@
 <x-dashboard>
     @slot('content')
         <div class="container">
-            <h1 class="text-center pd-4">List Feedback</h1>
+            <h1 class="text-center pd-4">List Lapangan</h1>
             <hr>
 
-            <form action="{{ route('admin.feedback.index') }}" method="get">
+            <form action="{{ route('admin.field.index') }}" method="get">
                 <div class="row pb-3">
-                    {{-- <div class="col-md-5 pt-4">
-                        <a href="{{ route('index_feedback') }}" class="btn btn-success">Go To feedback</a>
-                    </div> --}}
-                    <div class="col-md-3">
-                        <label>Start Date:</label>
-                        <input type="date" name="start_date" class="form-control" required value={{ $start_date ?? '' }}>
-                    </div>
-                    <div class="col-md-3">
-                        <label>End Date:</label>
-                        <input type="date" name="end_date" class="form-control" required value={{ $end_date ?? '' }}>
-                    </div>
-                    <div class="col-md-1 pt-4">
-                        <button type="submit" class="btn btn-warning fw-bold">Filter</button>
+                    <div class="col-lg-3 col-12 pt-4">
+                        <a href="{{ route('admin.field.create') }}" class="btn btn-success">Tambah Data Lapangan</a>
                     </div>
                 </div>
             </form>
@@ -28,31 +17,39 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Email</th>
-                            <th>Subject</th>
-                            <th>Message</th>
-                            <th>Waktu Dikirim</th>
+                            <th>Title</th>
+                            <th>Lokasi</th>
+                            <th>Harga</th>
+                            <th>Contact Person</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if (count($feedbacks) == 0)
+                        @if (count($fields) == 0)
                             <tr>
                                 <td colspan="6" class="text-center">Tidak Ada Data Yang Ditampilkan</td>
                             </tr>
                         @endif
-                        @foreach ($feedbacks as $feedback)
+                        @foreach ($fields as $field)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $feedback->email }}</td>
-                                <td>{{ $feedback->subject }}</td>
-                                <td>{{ Str::of($feedback->message)->limit(50) }}</td>
-                                <td>{{ $feedback->created_at }}</td>
+                                <td>{{ $field->title }}</td>
+                                <td>{{ $field->location }}</td>
+                                <td>{{ $field->price }}
+                                    @if ($field->is_promo)
+                                    <span class="badge bg-primary">PROMO</span>
+                                    @else
+                                    <span class="badge bg-success">REGULAR</span>
+                                    @endif
+                                </td>
+                                <td>{{ $field->contact_person }}</td>
                                 <td class="">
-                                    <a href="{{ route('admin.feedback.show', ['feedback' => $feedback->id]) }}"
+                                    <a href="{{ route('admin.field.show', ['field' => $field->id]) }}"
                                         class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                    <form id="delete-form{{ $feedback->id }}"
-                                        action="{{ route('admin.feedback.destroy', ['feedback' => $feedback]) }}"
+                                    <a href="{{ route('admin.field.edit', ['field' => $field]) }}"
+                                        class="btn btn-warning text-white"><i class="bi bi-pencil"></i></a>
+                                    <form id="delete-form{{ $field->id }}"
+                                        action="{{ route('admin.field.destroy', ['field' => $field]) }}"
                                         method="post" class="d-inline">
                                         @method('DELETE')
                                         @csrf
@@ -64,7 +61,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $feedbacks->links('pagination::bootstrap-5') }}
+                {{ $fields->links('pagination::bootstrap-5') }}
             </div>
         </div>
     @endslot

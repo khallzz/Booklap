@@ -34,23 +34,24 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <form action={{ route('feedback.store') }}>
+                        <form action={{ route('feedback.store') }} method="post">
+                            @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label fw-bold">Your Name</label>
-                                <input class="form-control" type="text" id="name" name="name" placeholder="Name">
+                                <input class="form-control" type="text" id="name" name="name" placeholder="Name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-bold">Email Address</label>
-                                <input class="form-control" type="email" id="email" name="email"
+                                <input class="form-control" type="email" id="email" name="email" required
                                     placeholder="example@domain.com">
                             </div>
                             <div class="mb-3">
                                 <label for="subject" class="form-label fw-bold">Subject</label>
-                                <input class="form-control" type="text" id="subject" name="subject">
+                                <input class="form-control" type="text" id="subject" name="subject" required>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label fw-bold">Message</label>
-                                <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Pesan..."></textarea>
+                                <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Pesan..." required></textarea>
                             </div>
                             <input type="submit" value="Submit" class="btn btn-primary text-white px-5">
                         </form>

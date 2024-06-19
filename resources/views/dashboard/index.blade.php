@@ -6,7 +6,7 @@
                 <!-- Grooming Card -->
                 <div class="col-md-6">
                     <div class="card mb-4">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('admin.field.index') }}">
                             <img src="{{ asset('assets/lapangan.png') }}" class="card-img-top mx-auto d-block" alt="Grooming">
                             <hr class="hr-view">
                         </a>
@@ -20,7 +20,7 @@
                 <!-- Pet Hotel Card -->
                 <div class="col-md-6">
                     <div class="card mb-4">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('admin.order.index') }}">
                             <img src="{{ asset('assets/ic-order.png') }}" class="card-img-top mx-auto d-block"
                                 alt="Pet Hotel">
                             <hr class="hr-view">
@@ -37,7 +37,7 @@
                 <!-- Orders Card -->
                 <div class="col-md-6">
                     <div class="card mb-4">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('admin.feedback.index') }}">
                             <img src="{{ asset('assets/ic-feedback.png') }}" class="card-img-top mx-auto d-block"
                                 alt="Orders">
                             <hr class="hr-view">

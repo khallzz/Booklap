@@ -3,16 +3,16 @@
     $about = '';
     $order = '';
     $book = '';
-    if (Route::currentRouteName() == 'home') {
+    if (Route::is('home')) {
         $home = 'active';
     }
-    if (Route::currentRouteName() == 'about') {
+    if (Route::is('about')) {
         $about = 'active';
     }
-    if (Route::currentRouteName() == 'order.index') {
+    if (Route::is('order.*')) {
         $order = 'active';
     }
-    if (Route::currentRouteName() == 'book') {
+    if (Route::is(['book*']) ) {
         $book = 'active';
     }
 @endphp
@@ -60,7 +60,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}">Profile</a>
+                            <a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a>
                             @if (Auth::user()->role == 'ADMIN')
                                 <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">Dashboard</a>
                             @endif

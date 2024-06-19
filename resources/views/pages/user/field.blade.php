@@ -12,8 +12,8 @@
                                     <button data-bs-toggle="modal" data-bs-target="#promoField{{ $loop->iteration }}"
                                         class="border-0 p-0 position-relative">
                                         <span class="badge bg-primary position-absolute top-2 end-2">PROMO</span>
-                                        <img src="{{ asset('assets/field-img.png') }}" class="img-fluid w-100"
-                                            alt="">
+                                        <img src="{{ $item->field_img ? Storage::url($item->field_img) : asset('assets/field-img.png') }}"
+                                            class="img-fluid w-100 border-3 object-fit-cover" alt="">
                                     </button>
                                     <strong>{{ $item->title }}</strong>
                                     <p class="text-muted m-0">{{ $item->location }}</p>
@@ -36,7 +36,8 @@
                                                     <hr class="border-primary border-2">
                                                     <button type="button" class="btn text-body-tertiary fw-bold border-0"
                                                         data-bs-dismiss="modal">Cancel</button>
-                                                    <a href={{ route('book.schedule.index', ['field' => $item->slug]) }} class="btn btn-primary text-white fw-bold px-4">Book</a>
+                                                    <a href={{ route('book.schedule.index', ['field' => $item->slug]) }}
+                                                        class="btn btn-primary text-white fw-bold px-4">Book</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -48,13 +49,21 @@
                     @endforeach
                 @endif
                 <h2>Pilihan <span class="text-primary">Venue</span></h2>
+                @if (count($regular_fields) == 0)
+                    <div class="card border-0 shadow text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Tidak ada pilihan Venue</h5>
+                        </div>
+                    </div>
+                @endif
                 @foreach ($regular_fields->chunk(4) as $items)
                     <div class="row">
                         @foreach ($items as $item)
                             <div class="col-3">
                                 <button data-bs-toggle="modal" data-bs-target="#regularField{{ $loop->iteration }}"
                                     class="border-0 p-0">
-                                    <img src="{{ asset('assets/field-img.png') }}" class="img-fluid w-100" alt="">
+                                    <img src="{{ $item->field_img ? Storage::url($item->field_img) : asset('assets/field-img.png') }}"
+                                        class="img-fluid w-100 border-3 object-fit-cover" alt="">
                                 </button>
                                 <strong>{{ $item->title }}</strong>
                                 <p class="text-muted m-0">{{ $item->location }}</p>
@@ -76,7 +85,8 @@
                                                 <hr class="border-primary border-2">
                                                 <button type="button" class="btn text-body-tertiary fw-bold border-0"
                                                     data-bs-dismiss="modal">Cancel</button>
-                                                    <a href={{ route('book.schedule.index', ['field' => $item->slug]) }} class="btn btn-primary text-white fw-bold px-4">Book</a>
+                                                <a href={{ route('book.schedule.index', ['field' => $item->slug]) }}
+                                                    class="btn btn-primary text-white fw-bold px-4">Book</a>
                                             </div>
                                         </div>
                                     </div>
