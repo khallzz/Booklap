@@ -28,7 +28,7 @@
                                 <div class="card-body">
                                     <h3 class="card-title fw-bold">{{ $order->field->title }}</h3>
                                     <h5 class="text-body-tertiary">Booking #{{ $order->order_code }}</h5>
-                                    <h5 class="">08:00 - 10:00, 6 June 2024</h5>
+                                    <h5 class="">{{ $order->start_time }} - {{ $order->end_time }}, {{ \Carbon\Carbon::parse($order->order_date)->format('d M Y') }}</h5>
                                     <span class="badge fs-6 rounded-5 me-4 {{ $bg_badge }}">{{ $order->status }}</span>
                                     <span class="text-body-tertiary">{{ Number::currency($order->amount, 'IDR') }}</span>
                                 </div>

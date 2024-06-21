@@ -40,8 +40,9 @@
                             </div>
                         </div>
                         @if (Route::has('password.request'))
-                        <p class="text-body-tertiary">Lupa Password? <a class="btn btn-link p-0" href="{{ route('password.request') }}">{{ __('Klik Disini') }}</a></p>
+                        <p class="text-body-tertiary m-0">Lupa Password? <a class="btn btn-link p-0 m-0" href="{{ route('password.request') }}">{{ __('Klik Disini') }}</a></p>
                         @endif
+                        <a class="btn btn-link p-0" href="{{ route('register') }}">{{ __('Register') }}</a>
 
                         <div class="row mb-0">
                             <div class="col-8">

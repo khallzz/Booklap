@@ -58,7 +58,7 @@
                                     <div class="mb-3">
                                         <label for="upload_file" class="form-label">Upload Bukti Pembayaran</label>
                                         <input type="file" class="form-control" id="upload_file" name="payment_receipt"
-                                            accept="image/jpg,image/jpeg,image/png">
+                                            accept="image/jpg,image/jpeg,image/png" required>
                                     </div>
                                     <button href="" class="btn btn-primary text-white">Ubah Bukti Pembayaran</butt>
                                 </form>
