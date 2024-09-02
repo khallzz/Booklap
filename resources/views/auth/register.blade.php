@@ -32,6 +32,19 @@
 
                         <div class="row mb-3">
                             <div class="col-8">
+                                <input id="fullname" type="text"
+                                    class="form-control @error('fullname') is-invalid @enderror" name="fullname"
+                                    value="{{ old('fullname') }}" required autocomplete="username" autofocus placeholder="Fullname">
+                                @error('fullname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-8">
                                 <input id="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email"
                                     value="{{ old('email') }}" required autocomplete="email">

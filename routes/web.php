@@ -29,9 +29,6 @@ Route::post('order/check-schedule/field/{field:slug}', [BookingController::class
 Route::get('order/{order:order_code}', [BookingController::class, 'orderDetail'])->name('order.show');
 Route::post('feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
-Route::middleware('auth')->group(function () {
-});
-
 Auth::routes();
 require __DIR__ . '/admin.php';
 
