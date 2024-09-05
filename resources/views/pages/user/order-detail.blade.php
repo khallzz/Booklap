@@ -40,7 +40,7 @@
                                 <div class="mb-3">
                                     <label for="upload_file" class="form-label">Upload Bukti Pembayaran</label>
                                     <input type="file" class="form-control" id="upload_file" name="payment_receipt"
-                                        accept="image/jpg,image/jpeg,image/png">
+                                        accept="image/jpg,image/jpeg,image/png" required oninvalid="showAlert('error', 'error', 'Harus Upload File')">
                                 </div>
                                 <hr class="bg-body-tertiary w-100 border-2">
                                 <div class="d-flex gap-3 justify-content-end">
@@ -70,4 +70,10 @@
         </section>
         <x-footer />
     @endslot
+
+    @push('script')
+        <script>
+
+        </script>
+    @endpush
 </x-app-layout>
