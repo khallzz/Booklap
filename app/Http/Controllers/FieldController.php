@@ -89,6 +89,7 @@ class FieldController extends Controller
      */
     public function destroy(Field $field)
     {
-        //
+        $field->delete();
+        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
 }

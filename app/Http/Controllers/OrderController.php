@@ -88,7 +88,8 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
 
     public function confirm(Request $req, Order $order)

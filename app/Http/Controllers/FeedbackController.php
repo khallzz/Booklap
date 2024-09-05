@@ -73,6 +73,7 @@ class FeedbackController extends Controller
      */
     public function destroy(Feedback $feedback)
     {
-        //
+        $feedback->delete();
+        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
     }
 }
