@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\OrderController;
@@ -29,7 +30,15 @@ Route::post('order/check-schedule/field/{field:slug}', [BookingController::class
 Route::get('order/{order:order_code}', [BookingController::class, 'orderDetail'])->name('order.show');
 Route::post('feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
+
+/**
+ * socialite auth
+ */
+Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider'])->name('socialite');
+Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProvideCallback']);
+
 Auth::routes();
+Auth::routes(['verify' => true]);
 require __DIR__ . '/admin.php';
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -49,6 +49,9 @@
                                 <button type="submit" class="btn btn-primary w-100 text-white fw-bold">
                                     {{ __('Sign In') }}
                                 </button>
+                                <a href={{route('socialite', ['provider' => 'google'])}} class="btn btn-outline-primary w-100 text-primary text-white-hover fw-bold mt-3">
+                                    <i class="bi bi-google"></i>
+                                </a>
                             </div>
                         </div>
                     </form>

@@ -27,7 +27,7 @@
 
 <body>
     @include('sweetalert::alert')
-    <div id="app">
+    <div id="app" class="{{$class}}">
         <x-navbar />
         <main class="">
             {{ $content }}

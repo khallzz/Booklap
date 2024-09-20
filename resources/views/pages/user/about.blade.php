@@ -12,14 +12,14 @@
                         <div class="d-flex flex-row mb-4">
                             <i class="bi bi-geo-alt-fill me-3 fs-4"></i>
                             <div class="">
-                                <p class="fw-bold m-0">Adress</p>
+                                <p class="fw-bold m-0">Alamat</p>
                                 <p>236 5th SE Avenue, New York NY10000, United States</p>
                             </div>
                         </div>
                         <div class="d-flex flex-row mb-4">
                             <i class="bi bi-telephone-fill me-3 fs-4"></i>
                             <div class="">
-                                <p class="fw-bold m-0">Adress</p>
+                                <p class="fw-bold m-0">Kontak</p>
                                 <p>Mobile: +(84) 546-6789 <br>
                                     Hotline: +(84) 456-6789</p>
                             </div>
@@ -27,7 +27,7 @@
                         <div class="d-flex flex-row mb-4">
                             <i class="bi bi-clock-fill me-3 fs-4"></i>
                             <div class="">
-                                <p class="fw-bold m-0">Adress</p>
+                                <p class="fw-bold m-0">Hari Operasional</p>
                                 <p>Monday-Friday: 9:00 - 22:00 <br>
                                     Saturday-Sunday: 9:00 - 21:00</p>
                             </div>

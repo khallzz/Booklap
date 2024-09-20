@@ -72,7 +72,7 @@
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
             <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li>
             <li>
-                <form id="logout-form" class="" action="{{ route('logout') }}" methomeod="POST">
+                <form id="logout-form" class="" action="{{ route('logout') }}" method="POST">
                     @csrf
                     <input type="submit" class="dropdown-item text-white" value="Logout" />
                 </form>

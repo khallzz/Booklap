@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('is_promo');
             $table->string('contact_person');
             $table->string('field_img')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
