@@ -25,3 +25,4 @@ npm install
 Buka 2 terminal terminal dan jalankan
 - Terminal 1 menjalankan `npm run dev`
 - Terminal lain menjalankan `php artisan serve`
+# Booklap
